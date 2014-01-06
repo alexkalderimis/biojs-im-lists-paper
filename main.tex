@@ -164,7 +164,7 @@ The Javascript code to instantiate the component refers to this element as the
 list is to be found, and which specific analysis \texttt{tool} we wish to run.
 The example below uses a list of genes encoding putative \emph{D. melanogaster}
 transcription factors made available as a public list at
-FlyMine~\cite{site:flymine} and runs the pathway enrichment statistical analysis
+FlyMine~\cite{flymine} and runs the pathway enrichment statistical analysis
 tool. The full list of available lists (which each user can extend by creating
 their own) and analysis tools can be accessed from the InterMine service being
 used.
@@ -302,7 +302,7 @@ var chart = new Biojs.InterMine.ListAnalysis({
 \end{lstlisting}
 
 This code will request data for the particular tool (\texttt{flyfish}), as run
-against the given input list (\texttt{PL FlyTF_putativeTFs}), and then display
+against the given input list (\texttt{PL FlyTF\_putativeTFs}), and then display
 the results in the appropriate chart format (Figure ~\ref{fig:flyfish}). The
 chart tools have fewer parameters; they may take a single parameter, as detailed
 in the tool description available from the relevant service (e.g.
