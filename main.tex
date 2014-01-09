@@ -24,7 +24,7 @@
 \definecolor{gray}{rgb}{0.5,0.5,0.5}
 \definecolor{mauve}{rgb}{0.58,0,0.82}
 
-\lstdefinelanguage{Javascript}{
+\lstdefinelanguage{JavaScript}{
   keywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break},
   keywordstyle=\color{blue}\bfseries,
   ndkeywords={class, export, boolean, throw, implements, import, this},
@@ -40,7 +40,7 @@
 }
 
 \lstset{frame=tb,
-  language=Javascript,
+  language=JavaScript,
   aboveskip=3mm,
   belowskip=3mm,
   showstringspaces=false, columns=flexible,
@@ -57,9 +57,10 @@
 
 \begin{document}
 
-\title{\textit{BioJS} InterMine List Analysis \\
-\small{A BioJS component for displaying graphical or statistical analysis of
-collections of items from InterMine web-service endpoint.}}
+\title{\textit{BioJS} InterMine List Analysis:
+A BioJS component for displaying graphical or statistical analysis of
+collections of items from InterMine web-service endpoint.
+}
 
 \author[1]{Radek Štěpán \thanks{radek@intermine.org}}
 \author[1]{Alexis Kalderimis \thanks{alex@intermine.org}}
@@ -77,11 +78,18 @@ collections of items from InterMine web-service endpoint.}}
 
 \begin{abstract}
 
-We describe a reusable BioJS Javascript component for the display of list
+\textbf{Summary:}
+We describe a reusable BioJS JavaScript component for the display of list
 analysis results from InterMine compatible web-services. This component can display
 statistical and graphical analyses of a user-defined collection of entities stored
 in a data warehouse. We explain how to instantiate and use this component, and
 define the potential benefits to the bioinformatics web-development community.
+
+\textbf{Availability:}
+\href{https://github.com/alexkalderimis/im-widgets-biojs} and
+\href{http://github.com/biojs/biojs}
+
+\textbf{Contact:} g.micklem@cam.ac.uk
 
 \end{abstract}
 \clearpage
@@ -90,7 +98,7 @@ define the potential benefits to the bioinformatics web-development community.
 
 InterMine~\cite{intermine} is a platform for building data warehouses which
 includes specialisations for the life-sciences. As part of the
-InterMOD~\cite{intermod} project, a number of InterMine data warehouses have
+InterMOD~\cite{intermod} project, a number of InterMine data-warehouses have
 been developed and released to the public containing high-quality integrated
 data curated by the major model organism database (MOD) organisations. In
 addition, the InterMine platform is widely used by other projects, such as the
@@ -113,24 +121,24 @@ levels of statistical significance for the results (\emph{enrichment queries}).
 Until recently, the output of these list analysis tools was only accessible
 through the web-application built into the InterMine system. Recent work on the
 InterMine web-services has enabled this functionality to be externalised into
-the list-widgets~\cite{site:list-widgets} project: separate Javascript based
-components that can be used in third party web sites.  These developments have
+the list-widgets~\cite{site:list-widgets} project: separate JavaScript based
+components that can be used in third party web-sites.  These developments have
 already been incorporated into the standard InterMine web-application
 configuration, meaning that users of the tools described here have access to the
 same query and display mechanisms in their own sites that are available through
 the standard InterMine web-application.
 
-InterMine supports the aims of the BioJS~\cite{site:biojs} initiative to provide
+InterMine supports the aims of the BioJS~\cite{biojs} initiative to provide
 well-designed, robust web-site components to application developers in order to
 foster code reuse and minimise duplicated effort. This leads us to contribute to
 the BioJS project this set of components for running list analysis tools and
-displaying their output, so that they may be widely disturbuted, and
+displaying their output, so that they may be widely distributed, and
 interoperate with tools from other developers.
 
 \subsection*{Installation}
 
-As a Javascript web component, these tools are designed to be run within the
-Javascript virtual machines provided by modern browsers, and render to HTML
+As a JavaScript web component, these tools are designed to be run within the
+JavaScript virtual machines provided by modern browsers, and render to HTML
 pages. Installation means indicating to the remote client (the user), which
 resources to load as dependencies, as well as where these are located. Typically
 this is done by adding references to these resources in the \texttt{head}
@@ -158,16 +166,15 @@ InterMine web-services. This requires that an element exist within the document
 <div id="list-analysis-example"></div>
 \end{lstlisting}
 
-The Javascript code to instantiate the component refers to this element as the
+The JavaScript code to instantiate the component refers to this element as the
 \texttt{target}, and provides the other arguments required to specify which
 \texttt{list} we wish to analyse, the \texttt{url} of the service where that
 list is to be found, and which specific analysis \texttt{tool} we wish to run.
 The example below uses a list of genes encoding putative \emph{D. melanogaster}
-transcription factors made available as a public list at
-FlyMine~\cite{flymine} and runs the pathway enrichment statistical analysis
-tool. The full list of available lists (which each user can extend by creating
-their own) and analysis tools can be accessed from the InterMine service being
-used.
+transcription factors made available as a public list at FlyMine~\cite{flymine}
+and runs the pathway enrichment statistical analysis tool. The full list of
+available lists (which each user can extend by creating personal lists) and
+analysis tools can be accessed from the InterMine service being used.
 
 \subsection*{Relationship Enrichment}
 
@@ -188,7 +195,7 @@ organism, such as Clark 2007~\cite{Clark:2007}, would not be considered as
 significant as a publication that mentions fewer genes, but with most of them
 being in the list of interest.
 
-The p-values used as measures of statistical signficance are calculated by
+The p-values used as measures of statistical significance are calculated by
 modelling the relationships as a hypergeometric distribution (as Rivals
 2007~\cite{rivals} and Beissbarth 2004~\cite{beissbarth}), which determines the
 probability that a relationship between two entities would be selected at random
@@ -196,7 +203,7 @@ given the set of items to choose from. Let $n$ be the number of items in the
 list, and $N$ be the size of the reference population, and $k$ be the number of
 items in the list which are involved in the given relationship (are mentioned in
 the publication, for example, or belong to a particular biochemical pathway),
-and $M$ be the the number of items in the reference population which share that
+and $M$ be the number of items in the reference population which share that
 same relationship. Then for each relationship
 
 $$P = \frac{{M \choose k} {N-M \choose n-k}}{{N \choose n}}$$
@@ -241,7 +248,7 @@ ways, specifically: by clicking on an individual item that was matched; by
 clicking on a button to show a set of matches; and by clicking on a button to
 request that the selected items be saved to some location.  All these actions
 cause the component to emit events, which can be listened for and handled by the
-host Javascript application. For example, to alert a string such as \texttt{Gene
+host JavaScript application. For example, to alert a string such as \texttt{Gene
 - FGBN0123} when a user clicks on the corresponding element, one might attach an
 event listener to capture the \texttt{onClickMatch} event, see code
 listing~\ref{code:event-listener}.
@@ -327,14 +334,15 @@ captured the same way (see code listing~\ref{code:event-listener}).
 This tool addresses an important set of needs for bioinformatics developers: the
 ability to perform enrichment analysis, and the the visualisation of typed
 relationships between entities.  The InterMine platform, and this BioJS
-component make performing these analyses straighforward, and displaying them
-straighforward. It allows the developers to focus on integrating this functionality
-where it is needed, and users to focus on interpreting the data rather than
-fetching it. It is expected that wide availability of these tools will provide
-significant savings in time for typically stretched developers and researchers.
-By providing this functionality as a BioJS component, it is hoped that
-integration between different tools will result in the creation of applications
-that are able to integrate analysis and visualisation from different platforms.
+component make performing these analyses and displaying the output
+straightforward. It allows the developers to focus on integrating this
+functionality where it is needed, and users to focus on interpreting rather than
+retrieving the data. It is expected that wide availability of these tools will
+provide significant savings in time for typically stretched developers and
+researchers.  By providing this functionality as a BioJS component, it is hoped
+that integration between different tools will result in the creation of
+applications that are able to integrate analysis and visualisation from
+different platforms.
 
 \section*{Conclusions}
 
@@ -346,9 +354,19 @@ allows this investment to benefit not just visitors to sites based on InterMine
 applications, but any developer or user who aims to include this kind of
 statistical analysis and visualisation in their platform. By providing
 bioinformatics web-developers, and their users, with access to a broad range of
-data sources meeting the needs of many diverse research communitites, we
+data sources meeting the needs of many diverse research communities, we
 expect to help reduce the development burden on projects with limited resources,
 and help minimise redundancy of effort.
+
+\subsection*{Author contributions}
+
+Alex Kalderimis wrote the manuscript and implemented the BioJS wrapper, under
+the supervision of Gos Micklem, to a set of user specifications supplied by
+Julie Sullivan, with feedback given by Rachel Lyne, Radek Štěpán and Mike Lyne.
+Radek Štěpán implemented the list analysis component.
+
+\subsection*{Acknowledgements}
+The author thanks Manuel Corpas for useful feedback.
 
 \subsection*{Competing interests}
 
@@ -394,7 +412,7 @@ js/intermine/apps-c/list-widgets/2.0.
 .4/app.bundle.min.js"></script>
 \end{lstlisting}
 
-Here we are referring to resources which are made publically available
+Here we are referring to resources which are made publicly available
 as part of a Content Delivery Network (CDN). These resources could just
 as well be hosted locally.
 
@@ -403,7 +421,6 @@ as well be hosted locally.
 
 % For more author guidance please see:
 % http://f1000research.com/author-guidelines
-
 
 % When all authors are happy with the paper, use the 
 % ‘Submit to F1000Research' button from the Share menu above
