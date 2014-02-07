@@ -39,7 +39,7 @@
   morestring=[b]"
 }
 
-\lstset{frame=tb,
+\lstset{frame=none,
   language=JavaScript,
   aboveskip=3mm,
   belowskip=3mm,
@@ -121,15 +121,15 @@ levels of statistical significance for the results (\emph{enrichment queries}).
 Until recently, the output of these list analysis tools was only accessible
 through the web-application built into the InterMine system. Recent work on the
 InterMine web-services has enabled this functionality to be externalised into
-the list-widgets~\cite{site:list-widgets} project: separate JavaScript based
-components that can be used in third party web-sites.  These developments have
+the list-widgets~\cite{site:list-widgets} project: separate JavaScript-based
+components that can be used in third party websites.  These developments have
 already been incorporated into the standard InterMine web-application
 configuration, meaning that users of the tools described here have access to the
 same query and display mechanisms in their own sites that are available through
 the standard InterMine web-application.
 
 InterMine supports the aims of the BioJS~\cite{biojs} initiative to provide
-well-designed, robust web-site components to application developers in order to
+well-designed, robust website components to application developers in order to
 foster code reuse and minimise duplicated effort. This leads us to contribute to
 the BioJS project this set of components for running list analysis tools and
 displaying their output, so that they may be widely distributed, and
@@ -145,7 +145,8 @@ this is done by adding references to these resources in the \texttt{head}
 section of a page through the use of \texttt{script} element (see code
 sample~\ref{code:loading}). Recent practice suggests loading these resources in
 at the end of the \texttt{body} improves page load time. The dependencies that
-must be loaded to use these tools are listed in appendix~\ref{app:deps}.
+must be loaded to use these tools are listed in Supplementary
+materials~\ref{app:deps}.
 
 The BioJS InterMine list analysis library needs to be downloaded from the BioJS
 registry~\cite{site:biojs-registry} and hosted in an accessible location.
@@ -159,7 +160,7 @@ registry~\cite{site:biojs-registry} and hosted in an accessible location.
 Once the BioJS component and its dependencies are loaded, the component itself
 may be instantiated, which creates a new list analysis displayer, inserts it
 into the document, and populates it with the appropriate data by calling to the
-InterMine web-services. This requires that an element exist within the document
+InterMine web-services. This requires that an element exists within the document
 (see code listing~\ref{code:div}) into which the component can be inserted.
 
 \begin{lstlisting}[caption={The target document element},label={code:div}]
@@ -170,13 +171,14 @@ The JavaScript code to instantiate the component refers to this element as the
 \texttt{target}, and provides the other arguments required to specify which
 \texttt{list} we wish to analyse, the \texttt{url} of the service where that
 list is to be found, and which specific analysis \texttt{tool} we wish to run.
-The example below uses a list of genes encoding putative \emph{D. melanogaster}
-transcription factors made available as a public list at FlyMine~\cite{flymine}
-and runs the pathway enrichment statistical analysis tool. The full list of
-available lists (which each user can extend by creating personal lists) and
-analysis tools can be accessed from the InterMine service being used.
+The example below uses a list of genes encoding putative \emph{Drosophila
+melanogaster} transcription factors made available as a public list at
+FlyMine~\cite{flymine} and runs the pathway enrichment statistical analysis
+tool. The full list of available lists (which each user can extend by creating
+personal lists) and analysis tools can be accessed from the InterMine service
+being used.
 
-\subsection*{Relationship Enrichment}
+\subsection*{Relationship enrichment}
 
 One category of tools is the \emph{enrichment tools}, which run queries that
 attempt to find relationships that are statistically significant for the set of
@@ -362,39 +364,33 @@ and help minimise redundancy of effort.
 
 Alex Kalderimis wrote the manuscript and implemented the BioJS wrapper, under
 the supervision of Gos Micklem, to a set of user specifications supplied by
-Julie Sullivan, with feedback given by Rachel Lyne, Radek Štěpán and Mike Lyne.
-Radek Štěpán implemented the list analysis component.
-
-\subsection*{Acknowledgements}
-The author thanks Manuel Corpas for useful feedback.
+Julie Sullivan. Radek Štěpán implemented the list analysis component, based on
+designs and specification from Julie Sullivan, Rachel Lyne, Mike Lyne and Alex
+Kalderimis. Rachel Lyne and Mike Lyne contributed to the component design and
+revised the manuscript. All authors have approved the manuscript.
 
 \subsection*{Competing interests}
 
-The authors declare that there are no competing interests.
+No competing interests were disclosed.
 
 \subsection*{Grant information}
-InterMine has been developed with the support of the following grants, awarded
-to Dr. G. Micklem.
 
-\begin{enumerate}
-\item the Wellcome Trust
- \begin{itemize}
- \item{Grant number: 090297}
- \end{itemize}
-\item and the National Human Genome Research Institute.
- \begin{itemize}
- \item{Grant number: R01HG004834}
- \end{itemize}
-\end{enumerate}
+InterMine has been developed with the support of the following grants, awarded
+to Dr. G. Micklem: the Wellcome Trust (Grant number: 090297), and the National
+Human Genome Research Institute (Grant number: R01HG004834).
 
 The content is solely the responsibility of the authors and does not necessarily
 represent the official views of the funding bodies.
+
+\subsection*{Acknowledgements}
+
+The authors thank Manuel Corpas for useful feedback.
 
 \nocite{*}
 {\small\bibliographystyle{unsrt}
 \bibliography{references}}
 
-\section*{Appendix}
+\section*{Supplementary materials}
 \appendix
 \section{Dependencies} \label{app:deps}
 
